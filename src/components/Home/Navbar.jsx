@@ -3,11 +3,15 @@ import {Box,styled, Typography} from '@mui/material';
 
 import { NavData } from '../../constants/Data';
 
-const Wrapper = styled(Box)`
-  display: flex;
-  margin: 55px 215px 0 215px;
-  justify-content: space-between;
-`
+const Wrapper = styled(Box)(({theme})=>({
+  display: 'flex',
+  margin: '55px 215px 0 215px',
+  justifyContent: 'space-between',
+  overflow: 'hidden',
+  [theme.breakpoints.down('lg')]:{
+    margin: '0'
+  }
+}))
 const Component = styled(Box)`
   padding: 12px 8px;
   text-align: center;

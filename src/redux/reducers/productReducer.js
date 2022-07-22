@@ -12,3 +12,17 @@ export const getProductsReducer = (state={products:[]}, action) => {
       }
 }
 
+export const getProductDetailReducer = (state={product:{}}, action) => {
+      switch (action.type) {
+        case actionType.GET_PRODUCT_DETAIL_REQUEST:
+          return {loading: true};
+        case actionType.GET_PRODUCT_DETAIL_SUCCESS:
+          return {loading:false,product: action.payload,};
+        case actionType.GET_PRODUCT_DETAIL_FAIL:
+          return {loading:false, error: action.payload,};
+        case actionType.GET_PRODUCT_DETAIL_RESET:
+          return {product:{}};
+        default: 
+          return state;
+      }
+}

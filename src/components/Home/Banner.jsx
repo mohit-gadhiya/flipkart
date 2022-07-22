@@ -5,10 +5,13 @@ import { BannerData } from '../../constants/Data'
 import {styled} from '@mui/material'
 
 
-const Image = styled('img')({
+const Image = styled('img')(({theme})=>({
   width: '100%',
-  height: '280px'
-})
+  height: '280px',
+  [theme.breakpoints.down('md')]: {
+    height: '180px'
+  }
+}))
 
 const responsive = {
   desktop: {
@@ -43,7 +46,7 @@ const Banner = () => {
       {
         BannerData.map((item, index) => {
           return(
-            <Image src={item.url} alt="banner" />
+            <Image src={item.url} alt="banner" key={index}/>
           )
         })
       }
